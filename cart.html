@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fashion Hero Slider</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow px-4 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="/assets/images/logo.png" alt="Logo" class="h-10 w-auto">
+        <span class="text-xl font-bold">FashionBrand</span>
+      </div>
+
+      <!-- Search Input -->
+      <div class="hidden md:flex flex-1 mx-6">
+        <input type="text" placeholder="Search for styles, brands..."
+          class="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300" />
+      </div>
+
+      <!-- Icons -->
+      <div class="flex items-center space-x-6">
+        <a href="/account" class="text-gray-600 hover:text-black">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.732 6.879 1.986M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </a>
+        <a href="/cart" class="text-gray-600 hover:text-black relative">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6H17a1 1 0 001-1V9H6l1 4zm0 0L5.4 5M17 13l-1.5 6" />
+          </svg>
+          <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">3</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+<div id="products" class="flex flex-wrap space-x-4">
+  <!-- Product Card 1 -->
+  <div class="product w-64 border rounded-lg p-4 flex flex-col bg-white shadow-md relative" data-price="500">
+    <!-- ❌ Cross Button -->
+    <button class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700" onclick="removeProduct(this)">×</button>
+
+    <!-- Left: Image & Counter -->
+    <div class="flex items-center justify-center space-x-4 mb-4">
+      <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/19612084/2022/8/23/2f231af7-b76b-44ee-ba46-e14fc70966ae1661242041748KETCHMenTealSlimFitPrintedCasualShirt1.jpg"
+           alt="Product" class="w-20 h-20 object-cover rounded">
+      <div class="flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mb-1">Stylish Shirt</h2>
+        <p class="text-base text-gray-600 mb-3">Price: <span class="unitPrice">500</span>৳</p>
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">−</button>
+          <span class="qty text-lg font-semibold">0</span>
+          <button onclick="increaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="text-sm font-bold">Total: <span class="productTotal">0</span>৳</p>
+    </div>
+  </div>
+
+  <!-- Product Card 2 -->
+  <div class="product w-64 border rounded-lg p-4 flex flex-col bg-white shadow-md relative" data-price="650">
+    <!-- ❌ Cross Button -->
+    <button class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700" onclick="removeProduct(this)">×</button>
+
+    <!-- Left: Image & Counter -->
+    <div class="flex items-center justify-center space-x-4 mb-4">
+      <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/19612084/2022/8/23/2f231af7-b76b-44ee-ba46-e14fc70966ae1661242041748KETCHMenTealSlimFitPrintedCasualShirt1.jpg"
+           alt="Product" class="w-20 h-20 object-cover rounded">
+      <div class="flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mb-1">Modern Shirt</h2>
+        <p class="text-base text-gray-600 mb-3">Price: <span class="unitPrice">650</span>৳</p>
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">−</button>
+          <span class="qty text-lg font-semibold">0</span>
+          <button onclick="increaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="text-sm font-bold">Total: <span class="productTotal">0</span>৳</p>
+    </div>
+  </div>
+
+  <!-- Add more product cards here -->
+   <!-- Product Card 2 -->
+  <div class="product w-64 border rounded-lg p-4 flex flex-col bg-white shadow-md relative" data-price="650">
+    <!-- ❌ Cross Button -->
+    <button class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700" onclick="removeProduct(this)">×</button>
+
+    <!-- Left: Image & Counter -->
+    <div class="flex items-center justify-center space-x-4 mb-4">
+      <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/19612084/2022/8/23/2f231af7-b76b-44ee-ba46-e14fc70966ae1661242041748KETCHMenTealSlimFitPrintedCasualShirt1.jpg"
+           alt="Product" class="w-20 h-20 object-cover rounded">
+      <div class="flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mb-1">Modern Shirt</h2>
+        <p class="text-base text-gray-600 mb-3">Price: <span class="unitPrice">650</span>৳</p>
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">−</button>
+          <span class="qty text-lg font-semibold">0</span>
+          <button onclick="increaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="text-sm font-bold">Total: <span class="productTotal">0</span>৳</p>
+    </div>
+  </div>
+  <!-- Product Card 2 -->
+  <div class="product w-64 border rounded-lg p-4 flex flex-col bg-white shadow-md relative" data-price="650">
+    <!-- ❌ Cross Button -->
+    <button class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700" onclick="removeProduct(this)">×</button>
+
+    <!-- Left: Image & Counter -->
+    <div class="flex items-center justify-center space-x-4 mb-4">
+      <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/19612084/2022/8/23/2f231af7-b76b-44ee-ba46-e14fc70966ae1661242041748KETCHMenTealSlimFitPrintedCasualShirt1.jpg"
+           alt="Product" class="w-20 h-20 object-cover rounded">
+      <div class="flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mb-1">Modern Shirt</h2>
+        <p class="text-base text-gray-600 mb-3">Price: <span class="unitPrice">650</span>৳</p>
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">−</button>
+          <span class="qty text-lg font-semibold">0</span>
+          <button onclick="increaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="text-sm font-bold">Total: <span class="productTotal">0</span>৳</p>
+    </div>
+  </div>
+  <!-- Product Card 2 -->
+  <div class="product w-64 border rounded-lg p-4 flex flex-col bg-white shadow-md relative" data-price="650">
+    <!-- ❌ Cross Button -->
+    <button class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700" onclick="removeProduct(this)">×</button>
+
+    <!-- Left: Image & Counter -->
+    <div class="flex items-center justify-center space-x-4 mb-4">
+      <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/19612084/2022/8/23/2f231af7-b76b-44ee-ba46-e14fc70966ae1661242041748KETCHMenTealSlimFitPrintedCasualShirt1.jpg"
+           alt="Product" class="w-20 h-20 object-cover rounded">
+      <div class="flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mb-1">Modern Shirt</h2>
+        <p class="text-base text-gray-600 mb-3">Price: <span class="unitPrice">650</span>৳</p>
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">−</button>
+          <span class="qty text-lg font-semibold">0</span>
+          <button onclick="increaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="text-sm font-bold">Total: <span class="productTotal">0</span>৳</p>
+    </div>
+  </div>
+
+  <!-- Product Card 2 -->
+  <div class="product w-64 border rounded-lg p-4 flex flex-col bg-white shadow-md relative" data-price="650">
+    <!-- ❌ Cross Button -->
+    <button class="absolute top-2 right-2 text-red-500 text-2xl font-bold hover:text-red-700" onclick="removeProduct(this)">×</button>
+
+    <!-- Left: Image & Counter -->
+    <div class="flex items-center justify-center space-x-4 mb-4">
+      <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/19612084/2022/8/23/2f231af7-b76b-44ee-ba46-e14fc70966ae1661242041748KETCHMenTealSlimFitPrintedCasualShirt1.jpg"
+           alt="Product" class="w-20 h-20 object-cover rounded">
+      <div class="flex flex-col justify-center">
+        <h2 class="text-lg font-semibold mb-1">Modern Shirt</h2>
+        <p class="text-base text-gray-600 mb-3">Price: <span class="unitPrice">650</span>৳</p>
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">−</button>
+          <span class="qty text-lg font-semibold">0</span>
+          <button onclick="increaseQty(this)" class="bg-gray-300 px-2 py-1 rounded text-lg">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="text-sm font-bold">Total: <span class="productTotal">0</span>৳</p>
+    </div>
+  </div>
+</div>
+
+<!-- Global Order Button -->
+<div class="mt-8 p-4 bg-white border rounded shadow flex items-center justify-between">
+  <p class="text-xl font-bold">মোট অর্ডার মূল্য: <span id="overallTotal">0</span>৳</p>
+ <a href="./userinfo.html"> <button class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition text-base">
+    অর্ডার করুন
+  </button></a>
+</div>
+
+<script>
+  function updateTotal() {
+    let overallTotal = 0;
+    document.querySelectorAll('.product').forEach(product => {
+      const price = parseInt(product.dataset.price);
+      const qtyEl = product.querySelector('.qty');
+      const qty = parseInt(qtyEl.innerText);
+      const total = price * qty;
+
+      product.querySelector('.productTotal').innerText = total;
+      overallTotal += total;
+    });
+    document.getElementById('overallTotal').innerText = overallTotal;
+  }
+
+  function increaseQty(button) {
+    const product = button.closest('.product');
+    const qtyEl = product.querySelector('.qty');
+    let qty = parseInt(qtyEl.innerText);
+    qty++;
+    qtyEl.innerText = qty;
+    updateTotal();
+  }
+
+  function decreaseQty(button) {
+    const product = button.closest('.product');
+    const qtyEl = product.querySelector('.qty');
+    let qty = parseInt(qtyEl.innerText);
+    if (qty > 0) {
+      qty--;
+      qtyEl.innerText = qty;
+    }
+    updateTotal();
+  }
+
+  function removeProduct(button) {
+    const product = button.closest('.product');
+    product.remove();  // Remove the product from DOM
+    updateTotal();  // Recalculate overall total after removal
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+<footer class="bg-gray-900 text-white mt-12">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    
+    <!-- Brand/Logo & About -->
+    <div>
+      <div class="flex items-center space-x-2 mb-4">
+        <img src="/assets/images/logo.png" alt="Logo" class="h-10">
+        <span class="text-xl font-bold">FashionBrand</span>
+      </div>
+      <p class="text-sm text-gray-400">
+        Elevate your style with our curated fashion collections. Trendy. Elegant. Affordable.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+      <ul class="space-y-2 text-gray-400 text-sm">
+        <li><a href="#" class="hover:text-white">Home</a></li>
+        <li><a href="#" class="hover:text-white">Shop</a></li>
+        <li><a href="#" class="hover:text-white">Collections</a></li>
+        <li><a href="#" class="hover:text-white">About Us</a></li>
+        <li><a href="#" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Customer Service -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Customer Service</h3>
+      <ul class="space-y-2 text-gray-400 text-sm">
+        <li><a href="#" class="hover:text-white">FAQs</a></li>
+        <li><a href="#" class="hover:text-white">Shipping & Returns</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Newsletter</h3>
+      <p class="text-gray-400 text-sm mb-4">Subscribe to get the latest style tips and offers.</p>
+      <form class="flex items-center">
+        <input type="email" placeholder="Your email"
+          class="w-full px-3 py-2 text-sm rounded-l bg-gray-800 border border-gray-700 focus:outline-none" />
+        <button type="submit" class="px-4 py-2 bg-pink-600 text-sm font-medium rounded-r hover:bg-pink-500">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-700 py-4 text-sm text-gray-400 text-center">
+    <p>© 2025 FashionBrand. All rights reserved.</p>
+    <div class="flex justify-center mt-2 space-x-4">
+      <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
